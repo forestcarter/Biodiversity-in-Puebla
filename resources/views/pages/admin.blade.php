@@ -241,7 +241,7 @@ $geojson=json_encode($allcolumns);
         </div>
         <div>
           <label for="campoclick" class=" h6 displayname">Campo Click</label>
-          <select required name="campoclick" id="campoclick"></select>
+          <select name="campoclick" id="campoclick"></select>
 		</div>
         <div>
           <label for="fillcolor" class=" h6 shapenombre">Fill Color</label>

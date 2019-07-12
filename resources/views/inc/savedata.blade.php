@@ -299,10 +299,10 @@
 				$mylat = askforkey("linea_mtp", "{$pointname}_latitud", "iden", $lineiden);
 
                 $sql="SELECT udp_puebla_4326.iden FROM udp_puebla_4326 WHERE ST_Intersects(udp_puebla_4326.geom, ST_GeomFromText('POINT({$mylong} {$mylat})',4326))";
-                $udpresult = DB::select($sql, []);
-                if (sizeof($udpresult)>0){
-                    $unitcolumns["iden_udp"]= $udpresult[0]->iden;
-				} 
+                // $udpresult = DB::select($sql, []);
+                // if (sizeof($udpresult)>0){
+                //     $unitcolumns["iden_udp"]= $udpresult[0]->iden;
+				// } 
 
                 $unitcolumns["iden_medicion"]= $medicionkey;
             //Handle observaciones

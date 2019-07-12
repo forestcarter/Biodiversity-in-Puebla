@@ -66,11 +66,11 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
                 if (strpos($columnname, 'itud') !== false && !(is_numeric($postval))) {
                     $errorlist[]= "El campo '{$columnname}' de {$tablename} tiene que ser numero";
                 }
-                if (strpos($columnname, 'longitud') !== false && (!($postval<-80) || !($postval>-120))) {
-                    $errorlist[]= "El campo '{$columnname}' de {$tablename} tiene que ser entre -80 y -120 grados";
+                if (strpos($columnname, 'longitud') !== false && (!($postval<-67) || !($postval>-82))) {
+                    $errorlist[]= "El campo '{$columnname}' de {$tablename} tiene que ser entre -67 y -82 grados";
                 }
-                if (strpos($columnname, 'latitud') !== false && (!($postval>14) || !($postval<34))) {
-                    $errorlist[]= "El campo '{$columnname}' de {$tablename} tiene que ser entre 14 y 34 grados";
+                if (strpos($columnname, 'latitud') !== false && (!($postval>-20) || !($postval<2))) {
+                    $errorlist[]= "El campo '{$columnname}' de {$tablename} tiene que ser entre -20 y 2 grados";
                 }
                 if ($postval=='notselected' && $columnname !='notas') {
                     $errorlist[]= "{$tablename} esta vacio";

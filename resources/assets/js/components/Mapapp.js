@@ -260,7 +260,7 @@ class Mapapp extends React.Component {
                         />
                     </div>
                     <div id="mapcontrol">
-                        <MapControl
+                        {false && <MapControl
                             handleSpeciesChange={this.handleSpeciesChange}
                             handleTotalDistinctChange={
                                 this.handleTotalDistinctChange
@@ -268,7 +268,7 @@ class Mapapp extends React.Component {
                             handleOpacityChange={this.handleOpacityChange}
                             handleMaxChange={this.handleMaxChange}
                             mapSettings={this.state.mapSettings}
-                        />
+                        />}
                     </div>
 
 					<div id="buttons1">
@@ -299,7 +299,7 @@ class Mapapp extends React.Component {
 						</div>
 						
 					)}
-                        {this.state.udpButton && (
+                        {false && this.state.udpButton && (
 							<div>
 							<div>
 							<a

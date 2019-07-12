@@ -1,6 +1,6 @@
 body {
   color: rgb(0, 0, 0);
-  background-color: #fff8e7;
+  background-color:$body-bg;
   font-family: Calibri, sans-serif;
   font-size: 18px;
   line-height: 1;
@@ -279,7 +279,7 @@ img {
 #mapdiv {
   grid-area: mapdiv;
   margin:5px;
-  height:100%;
+  
 }
 #mapinfodisplay {
   grid-area: mapinfodisplay;
@@ -304,13 +304,13 @@ img {
 #pagecontainer{
   height:90%;
   display: grid;
-  grid-template-columns: auto 550px;
+  grid-template-columns: 550px auto ;
   grid-template-rows: auto 100px 45px 45px;
   grid-template-areas: 
-    "mapdiv mapinfodisplay"
-    "mapdiv mapcontol"
-    "buttons1 mapcontol"
-    "buttons2 mapcontol";
+    "mapinfodisplay mapdiv"
+    "mapcontol mapdiv"
+    "mapcontol buttons1"
+    "mapcontol buttons2 ";
 }
 
 #app{

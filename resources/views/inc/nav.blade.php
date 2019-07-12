@@ -1,5 +1,5 @@
-<nav class="mynavbar navbar navbar-expand-lg" style="background-color: rgb(66, 214, 96);">
-  <a class="navbar-brand" href="/mostrarmapas">MTP Biodiversidad</a>
+<nav class="mynavbar navbar navbar-expand-lg">
+  <a class="navbar-brand" href="/mostrarmapas">Biodiversidad Peru</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>

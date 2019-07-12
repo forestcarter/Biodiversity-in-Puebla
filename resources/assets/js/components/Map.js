@@ -98,7 +98,7 @@ class Map extends React.Component {
                 style: myStyle,
                 onEachFeature: onEachFeature
             });
-            if (item.geom && item.geom.features[0].geometry.type == "Point") {
+            if (item.geom && item.geom.features[0].geometry && item.geom.features[0].geometry.type == "Point") {
                 c2 = L.geoJSON(item.geom, {
                     pointToLayer: function(feature, latlng) {
                         return L.circleMarker(latlng, geojsonMarkerOptions);
@@ -107,7 +107,7 @@ class Map extends React.Component {
                     style: myStyle
                 });
             }
-            if ( item.tableName == "linea_mtp" || item.tableName == "udp_puebla_4326" ) {
+            if ( item.tableName == "linea_mtp" || item.tableName == "peru" ) {
                 c2.addTo(mymap);
 			}
 			c2['category']=item.category
@@ -124,10 +124,11 @@ class Map extends React.Component {
 			var actividadArray=[]
             array.forEach(function(item) {
                 let myLayer = get_shp(item, mymap, getColor, getOutline);
-                if (item.tableName == "udp_puebla_4326") {
-                    dynamicLayer = myLayer;
+                if (item.tableName == "peru") {
+					dynamicLayer = myLayer;
+					console.log(item)
                     mymap.fitBounds(myLayer.getBounds());
-                    mymap.setZoom(7.5);
+                    mymap.setZoom(4);
 				}
 
 				if (myLayer.category=='Referencial'){
@@ -154,7 +155,7 @@ class Map extends React.Component {
 
 			var tempraster = L.tileLayer("temptiles/{z}/{x}/{y}.png", { enable: true, tms: true, opacity: 0.8, attribution: "" });
 			tempraster.category='Referencial'
-			overlayMaps["Escenario85_2099_Temp_UNIATMOS_2015"] = tempraster;
+			//overlayMaps["Escenario85_2099_Temp_UNIATMOS_2015"] = tempraster;
 			
 			const compare =function(a, b) {
 				if (a.category=='Base') {
@@ -249,13 +250,13 @@ class Map extends React.Component {
             return div;
         };
         speciesLegend.onAdd = this.makeDiv;
-        speciesLegend.addTo(this.map);
+        //speciesLegend.addTo(this.map);
         this.speciesLegend = speciesLegend;
         /////////////////////////////////////////////////////
     }
 
     componentDidUpdate({ mapSettings }) {
-        if (this.props.mapSettings !== mapSettings) {
+        if (false && this.props.mapSettings !== mapSettings) {
             this.map.removeControl(this.speciesLegend);
             const updatedLegend = L.control({ position: "bottomright" });
             updatedLegend.onAdd = this.makeDiv;

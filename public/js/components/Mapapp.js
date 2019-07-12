@@ -15888,7 +15888,7 @@ var Map = function (_React$Component) {
                     style: myStyle,
                     onEachFeature: onEachFeature
                 });
-                if (item.geom && item.geom.features[0].geometry.type == "Point") {
+                if (item.geom && item.geom.features[0].geometry && item.geom.features[0].geometry.type == "Point") {
                     c2 = _leaflet2.default.geoJSON(item.geom, {
                         pointToLayer: function pointToLayer(feature, latlng) {
                             return _leaflet2.default.circleMarker(latlng, geojsonMarkerOptions);
@@ -15897,7 +15897,7 @@ var Map = function (_React$Component) {
                         style: myStyle
                     });
                 }
-                if (item.tableName == "linea_mtp" || item.tableName == "udp_puebla_4326") {
+                if (item.tableName == "linea_mtp" || item.tableName == "peru") {
                     c2.addTo(mymap);
                 }
                 c2['category'] = item.category;
@@ -15912,10 +15912,11 @@ var Map = function (_React$Component) {
                 var actividadArray = [];
                 array.forEach(function (item) {
                     var myLayer = get_shp(item, mymap, getColor, getOutline);
-                    if (item.tableName == "udp_puebla_4326") {
+                    if (item.tableName == "peru") {
                         dynamicLayer = myLayer;
+                        console.log(item);
                         mymap.fitBounds(myLayer.getBounds());
-                        mymap.setZoom(7.5);
+                        mymap.setZoom(4);
                     }
 
                     if (myLayer.category == 'Referencial') {
@@ -15941,7 +15942,7 @@ var Map = function (_React$Component) {
 
                 var tempraster = _leaflet2.default.tileLayer("temptiles/{z}/{x}/{y}.png", { enable: true, tms: true, opacity: 0.8, attribution: "" });
                 tempraster.category = 'Referencial';
-                overlayMaps["Escenario85_2099_Temp_UNIATMOS_2015"] = tempraster;
+                //overlayMaps["Escenario85_2099_Temp_UNIATMOS_2015"] = tempraster;
 
                 var compare = function compare(a, b) {
                     if (a.category == 'Base') {
@@ -16021,7 +16022,7 @@ var Map = function (_React$Component) {
                 return div;
             };
             speciesLegend.onAdd = this.makeDiv;
-            speciesLegend.addTo(this.map);
+            //speciesLegend.addTo(this.map);
             this.speciesLegend = speciesLegend;
             /////////////////////////////////////////////////////
         }
@@ -16032,7 +16033,7 @@ var Map = function (_React$Component) {
 
             var mapSettings = _ref.mapSettings;
 
-            if (this.props.mapSettings !== mapSettings) {
+            if (false) {
                 this.map.removeControl(this.speciesLegend);
                 var updatedLegend = _leaflet2.default.control({ position: "bottomright" });
                 updatedLegend.onAdd = this.makeDiv;
@@ -19108,7 +19109,7 @@ var Mapapp = function (_React$Component) {
 					_react2.default.createElement(
 						"div",
 						{ id: "mapcontrol" },
-						_react2.default.createElement(_MapControl2.default, {
+						false && _react2.default.createElement(_MapControl2.default, {
 							handleSpeciesChange: this.handleSpeciesChange,
 							handleTotalDistinctChange: this.handleTotalDistinctChange,
 							handleOpacityChange: this.handleOpacityChange,
@@ -19144,7 +19145,7 @@ var Mapapp = function (_React$Component) {
 								"Especies y Normas 059"
 							)
 						),
-						this.state.udpButton && _react2.default.createElement(
+						false && this.state.udpButton && _react2.default.createElement(
 							"div",
 							null,
 							_react2.default.createElement(

@@ -48,9 +48,11 @@
 @include('inc/nav')
 <div id="loginGrid">
 	<div id="loginHeader">
+			<br/>
+			<br/>
 		<h4 class='titleHeaders'>
 			<strong>
-				Monitoreo Integrado para la Planeación<br/>de los Paisajes Sostenibles (MIPPS)
+				Monitoreo Integrado de Biodiversidad de Peru
 			</strong>
 		</h4>
 	</div>
@@ -93,8 +95,8 @@
 
 	<div id="loginFooter" class="creditFooter">
 		<h6 class='titleHeaders'>
-			<strong>Desarrollo conceptual y conducción de grupos de trabajo:</strong> <br/> Jesús Hernández Castán, Alfredo Gámez,
-			<br/> Daniel Espinoza, Tonatiuh González <br/>
+			<strong>Desarrollo conceptual:</strong> <br/> Jesús Hernández Castán
+			<br/>
 
 		</h6>
 		<h6 class='titleHeaders'>

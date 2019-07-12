@@ -13,16 +13,15 @@ class layer
 $email=session('email');
 $dbemail = session('admin') == 1 ? "%" : $email;
 $layer1 = new layer();
-$layer1->tableName = 'udp_puebla_4326';
-$layer1->displayName = 'Unidad de Paisaje';
-$layer1->featureColumn = 'iden';
+$layer1->tableName = 'peru';
+$layer1->displayName = 'Peru';
+$layer1->featureColumn = 'gid';
 $layer1->color = 'black';
-$layer1->fillColor = 'blue';
+$layer1->fillColor = 'red';
 $layer1->opacity = 1;
 $layer1->weight = 0.3;
-$layer1->fillOpacity = 0.5;
-$layer1->sql ="SELECT *, ST_AsGeoJSON(geom_count62.geom, 5) AS geojson FROM geom_count62
-LEFT JOIN onlyemail ON geom_count62.iden = onlyemail.iden"
+$layer1->fillOpacity = 0.3;
+$layer1->sql ="SELECT *, ST_AsGeoJSON(geom, 5)  AS geojson FROM peru"
 ;
 $layer1->category='Referencial';
 
@@ -90,9 +89,11 @@ $layer6->fillOpacity = 0.5;
 $layer6->sql = "SELECT descripcion,iden_geom, ST_AsGeoJSON(iden_geom, 5) AS geojson FROM actividad where tipo_geom='poligono'";
 $layer6->category='Referencial';
 
-$layersArray = array($layer1, $layer2, $layer3, $layer4, $layer5, $layer6);
-$addlayers = DB::select("SELECT * FROM additional_layers",[]);
+//$layersArray = array($layer1, $layer2, $layer3, $layer4, $layer5, $layer6);
+$layersArray = array($layer1, $layer2);
 
+$addlayers = DB::select("SELECT * FROM additional_layers",[]);
+$addlayers=[];
 foreach($addlayers as $singlerow) {
     $templayer = new layer();
     $templayer->tableName = $singlerow->tablename;
@@ -269,7 +270,7 @@ $geojson=json_encode($layersArray);
 ?>
 <script>
     var something = {!! $geojson !!};
-    var defaultmax = {!! $defaultmaxjson['udp_puebla_4326'] !!};     
+    var defaultmax = 100;
 </script>
 
 
